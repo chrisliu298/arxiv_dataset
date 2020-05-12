@@ -15,13 +15,7 @@ sep = "<|sep|>"
 def make_dataset(subject, titles, abstract):
     data = list(zip(titles, abstract))
     random.shuffle(data)
-    text = []
-    with open(f"{subject[2:4]}_dataset.txt", "w+") as f:
-        for title, abstract in data:
-            example = f"{subject} {title} {sep} {abstract} {endoftext}\n\n"
-            f.write(example)
-            text.append(example)
-    f.close()
+    text = [f"{subject} {title} {sep} {abstract} {endoftext}\n\n" for title, abstract in data]    
     return text
 
 
