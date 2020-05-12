@@ -45,13 +45,13 @@ ratio = 0.9
 arxiv_train = arxiv_dataset[:int(len(arxiv_dataset) * ratio)]
 arxiv_eval = arxiv_dataset[int(len(arxiv_dataset) * ratio):]
 
-with open("arxiv_train.txt", "w+") as train:
+with open("train.txt", "w+") as train:
     for i in arxiv_train:
         train.write(i)
 
 train.close()
 
-with open("arxiv_eval.txt", "w+") as eval:
+with open("eval.txt", "w+") as eval:
     for i in arxiv_eval:
         eval.write(i)
 
