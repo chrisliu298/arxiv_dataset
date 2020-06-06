@@ -1,9 +1,10 @@
 import numpy as np
 import pandas as pd
 import random
-random.seed(42)
 from datetime import datetime
 import re
+
+random.seed(42)
 
 # Labels
 startoftext = "<|startoftext|>"
@@ -61,8 +62,8 @@ def split_datasets(data):
     train_text = data[:-9880]
     eval_text = data[-9880:]
     valid_test_ratio = 0.5
-    valid_text = eval_text[:int(len(eval_text) * valid_test_ratio)]
-    test_text = eval_text[int(len(eval_text) * valid_test_ratio):]
+    valid_text = eval_text[: int(len(eval_text) * valid_test_ratio)]
+    test_text = eval_text[int(len(eval_text) * valid_test_ratio) :]
     assert len(train_text) == 90000
     assert len(valid_text) == 4940
     assert len(test_text) == 4940
@@ -81,7 +82,6 @@ def write_datasets(data, name):
             f.write(f"{d[0]} {d[1]}\n\n")
     f.close()
     print(f"{name} file completed.")
-
 
 
 if __name__ == "__main__":
