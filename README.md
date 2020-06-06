@@ -21,8 +21,6 @@ python preprocess_arxiv.py
 |    Test    |    4,940   |      4.95      |    1,218,754    |
 | **Total**  | **99880**  |    **100**     | **23,247,822**  |
 
-**Note:** The two extra tokens here are the `\n`'s at the bottom of the file.
-
 ## Reference
 
 ```
