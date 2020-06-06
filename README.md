@@ -6,21 +6,30 @@ I use the titles and abstract of these papers to fine-tune my GPT-2 model.
 
 ## Usage
 
-The script reads the `.tsv` file, adds special symbols to separate the titile and the abstract, and writes a text file for each category and an extra file of shuffled instances. Then it splits the training and evaluation data at the ratio 9:1.
+The script reads the `.tsv` file, adds special symbols to separate the titile and the abstract, and writes a text file for each category and an extra file of shuffled instances. It splits all examples into training, validation, and test sets.
 
 ```shell
-python make_arxiv_data.py
+python preprocess_arxiv.py
 ```
 
 ## Dataset
 
-|                   Category                   |   Count    |
-| :------------------------------------------: | :--------: |
-|         Artificial Intelligence (AI)         |   21889    |
-|            Machine Learning (LG)             |   47025    |
-|        Computation and Language (CL)         |   17008    |
-| Computer Vision and Pattern Recognition (CV) |   35694    |
-|                  **Total**                   | **121616** |
+|                   Category                   |   Count    | Percentage (%) | BPE Token Count |
+| :------------------------------------------: | :--------: | :------------: | :-------------: |
+|         Artificial Intelligence (AI)         |   21889    |     18.00      |    4,791,146    |
+|            Machine Learning (LG)             |   47025    |     38.67      |   11,078,662    |
+|        Computation and Language (CL)         |   17008    |     13.99      |    3,549,625    |
+| Computer Vision and Pattern Recognition (CV) |   35694    |     29.35      |    8,687,225    |
+|                  **Total**                   | **121616** |    **100**     | **28,106,658**  |
+
+|   Splits   |   Count    | Percentage (%) | BPE Token Count |
+| :--------: | :--------: | :------------: | :-------------: |
+|   Train    |   109616   |     90.13      |   25,201,566    |
+| Validation |    6000    |      4.93      |    1,435,898    |
+|    Test    |    6000    |      4.93      |    1,469,196    |
+| **Total**  | **121616** |    **100**     | **28,106,660*** |
+
+**Note:** The two extra tokens here are the `\n`'s at the bottom of the file.
 
 ## Reference
 
